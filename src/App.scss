@@ -630,8 +630,8 @@ img, input, textarea {
 }
 .sharebtn{
     img{
-        width: 26px;
-        margin: 8px;
+        width: 32px;
+        margin: 0 8px;
         cursor: pointer;
     }
 }
@@ -708,6 +708,8 @@ img, input, textarea {
         display: flex;
 
         .serving{
+            display:flex;
+            align-items: center;
             font: {
                 size: 16px;
             }
@@ -715,8 +717,38 @@ img, input, textarea {
                 margin-bottom: 16px;
                 cursor: pointer;
                 font: {
-                    size: 21px;
+                    size: 24px;
                     weight: bold;
+                }
+            }
+            .servBtn{
+                cursor: pointer;
+                width: 24px;
+                height: 24px;
+                padding: 0;
+                background: $orange;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            svg{
+                margin: 0;
+                stroke: #fff;
+                stroke-width : 2px;
+
+            }
+        }
+
+        .description{
+            .desRow{
+                display: flex;
+                margin-bottom: 8px;
+                .stepnum{
+                    font: {
+                        weight: bold;
+                    }
+                    margin-right: 8px;
                 }
             }
         }

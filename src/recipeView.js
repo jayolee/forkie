@@ -3,6 +3,7 @@ import fork from './images/fork2.png'
 import share from './images/share1.png'
 import pancake from './images/pancake.jpg'
 import profile from './images/profile1.jpg'
+import CookV from './cookView.js'
 
 class RecipeV extends Component {
     constructor(props) {
@@ -16,6 +17,8 @@ class RecipeV extends Component {
           stepopc: 0,
           stepdis: 1,
           opacity: 0,
+
+          cookV : 0,
         }
         this.arrow = [ <path d = "M0 5 L10 10 L20 5" />,  <path d = "M0 10 L10 5 L20 10" />];
         this.display = ["block","none"]
@@ -39,9 +42,18 @@ class RecipeV extends Component {
       step.innerHTML = "1.";
     
   }
+  startCook(){
+    if(this.state.cookV === 1){
+      return <CookV endCook = {this.endCook.bind(this)}/>
+    }
+  }
+  endCook(){
+    this.setState({cookV : 0});
+  }
   render() {
     return (
       <div className = "recipeC mainmenu" key ="recipe" style={{transform:this.state.openmov, opacity:this.state.opacity}}>
+     {this.startCook()}
       <div className = "topSec   recipe">
         <div className = "topbar">
           <div className = "sharebtn" style ={{display:"flex", alignItems: "center"}}>
@@ -87,11 +99,26 @@ class RecipeV extends Component {
           </div>
 
           <div className = "row">
+          <div className = "title">Serving Size</div>
+          <div className = "serving">
+              <div className = "servBtn" style ={{marginRight: "16px"}}>
+                <svg width = "12" height ="12">
+                  <path d = "M0 6 L12 6" />
+                </svg>
+              </div>
+              <div className = "description">2</div>
+              <div className = "servBtn"  style ={{marginLeft: "16px"}}>
+                <svg width = "12" height ="12">
+                  <path d = "M0 6 L12 6" />
+                  <path d = "M6 0 L6 12" />
+                </svg>
+              </div>
+          </div>
+          </div>
+
+          <div className = "row">
           <div className = "title" >Ingredients</div>
           <div className = "description">
-            <div className = "serving">
-            <span class="calculate">-</span> 2 people <span class="calculate">+</span>
-            </div>
           <div className= "steps">
             1 stick butter <br />
               4 egg whites<br />
@@ -107,9 +134,16 @@ class RecipeV extends Component {
 
           <div className = "row">
           <div className = "title" >Steps</div>
-          <div className = "description"><span className = "stepnum">1. </span>Beat egg whites until soft peaks form, then add granulated sugar and continue to beat until combined.<br />
-          <span className = "stepnum">2. </span>In a large bowl, whisk together the remaining batter ingredients. Fold one-third of the meringue into the batter at a time.
-
+          <div className = "description">
+            <div className = "desRow">
+            <div className = "stepnum">1.</div>
+            <div className = "stepDes">Beat egg whites until soft peaks form, then add granulated sugar and continue to beat for 3 mins.</div>
+            </div>
+            <div className = "desRow">
+              <div className = "stepnum">2.</div>
+              <div className = "stepDes">In a large bowl, whisk together the remaining batter ingredients. Fold one-third of the meringue into the batter at a time.
+              </div>
+          </div>
           </div>
           </div>
 
@@ -126,7 +160,7 @@ class RecipeV extends Component {
         {this.state.alert}
       </div>
 
-      <div className = "btmbtn">Start Cooking</div>
+      <div className = "btmbtn" onClick = {(ev) => {this.setState({cookV: 1})}}>Start Cooking</div>
       </div>
     );
   }
