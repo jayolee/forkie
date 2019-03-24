@@ -10,7 +10,7 @@ class Home extends Component {
           <div className = "addbtn" onClick = {this.props.openShare.bind(this)}>+</div>
         </div>
         <div className = "cardRow">
-       <div className ="feedCard">
+       <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
         <div className ="profilePic" />
         <div className = "Messages">
           <div className = "sent">
@@ -26,7 +26,7 @@ class Home extends Component {
         </div>
        </div>
 
-        <div className ="feedCard">
+        <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
         <div className ="profilePic" />
         <div className = "Messages">
           <div className = "sent">
@@ -45,7 +45,7 @@ class Home extends Component {
         </div>
        </div>
 
-        <div className ="feedCard">
+        <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
         <div className ="profilePic" />
         <div className = "Messages">
           <div className = "sent">
@@ -67,7 +67,7 @@ class Home extends Component {
         </div>
        </div>
 
-          <div className ="feedCard">
+          <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
         <div className ="profilePic" />
         <div className = "Messages">
           <div className = "sent public">
@@ -83,7 +83,7 @@ class Home extends Component {
         </div>
        </div>
 
-          <div className ="feedCard">
+          <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
         <div className ="profilePic" />
         <div className = "Messages">
           <div className = "sent">
@@ -102,7 +102,7 @@ class Home extends Component {
         </div>
        </div>
 
-        <div className ="feedCard">
+        <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
         <div className ="profilePic" />
         <div className = "Messages">
           <div className = "sent">

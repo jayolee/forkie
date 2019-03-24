@@ -14,6 +14,7 @@ import Recipes from './recipe.js'
 import Profile from './profile.js'
 
 import RecipeC from './recipeC.js'
+import RecipeV from './recipeView.js'
 import './App.scss';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
       opcity: 0,
       dis: 1,
       recipe : 0,
+      recipeV : 0,
     }
     this.home = [home, homeOn];
     this.msg = [mail, mailOn];
@@ -40,15 +42,18 @@ class App extends Component {
     setTimeout(function () {this.setState({opcity: 1})}.bind(this), 10);
 }
 closeRecipe(){
-  this.setState({recipe: 0, opcity : 0});
+  this.setState({recipe: 0, recipeV:0, opcity : 0});
   setTimeout(function () {this.setState({dis: 1})}.bind(this), 10);
+}
+openRecipe(){
+  this.setState({recipeV: 1});
 }
 
   pageRender(){
     switch(this.state.page){
       case 0: 
         this.menu = [this.home[1], this.msg[0], this.recipe[0], this.profile[0]];
-        return <Home openShare = {this.openshare.bind(this)} />;
+        return <Home openShare = {this.openshare.bind(this)} recipeView = {this.openRecipe.bind(this)} />;
       case 1: 
         this.menu = [this.home[0], this.msg[1], this.recipe[0], this.profile[0]];
         return <Message />;
@@ -63,6 +68,11 @@ closeRecipe(){
   recipeRender(){
     if(this.state.recipe == 1){
       return <RecipeC closeRecipe = {this.closeRecipe.bind(this)} />
+    }
+  }
+  recipeViewer(){
+    if(this.state.recipeV == 1){
+      return <RecipeV closeRecipe = {this.closeRecipe.bind(this)} />
     }
   }
   render() {
@@ -83,7 +93,9 @@ closeRecipe(){
               <div className = "btn" onClick = {(ev) => {this.setState({recipe: 1})}}>Share Recipe</div>
             </div>
          </div>
+        
         {this.recipeRender()}
+        {this.recipeViewer()}
         {/* <RecipeC /> */}
 
         </div>
