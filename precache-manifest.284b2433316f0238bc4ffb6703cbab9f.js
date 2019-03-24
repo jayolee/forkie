@@ -4,20 +4,20 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/recipe.706c637e.svg"
   },
   {
-    "revision": "d4b3125d0744469baa37",
-    "url": "/forkie/static/css/main.59727956.chunk.css"
+    "revision": "c3c17dafcb0ec8b575cc",
+    "url": "/forkie/static/css/main.1588b4f8.chunk.css"
   },
   {
     "revision": "4ae04c6c8a93822d2862",
     "url": "/forkie/static/js/runtime~main.4651f496.js"
   },
   {
-    "revision": "3e93cd349298d33a3386",
-    "url": "/forkie/static/js/2.227cd22b.chunk.js"
+    "revision": "a1add725b939eaa21ca9",
+    "url": "/forkie/static/js/2.2f3eac30.chunk.js"
   },
   {
-    "revision": "48fedadbba01447b3f0e791fcdcafe8f",
-    "url": "/forkie/static/media/fork.48fedadb.svg"
+    "revision": "123dad529434b05cc1c63976141ad70f",
+    "url": "/forkie/static/media/fork.123dad52.svg"
   },
   {
     "revision": "5f1ff5d9450433e8d8852d6ca74e6e68",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/messages.1df2524f.svg"
   },
   {
-    "revision": "d4b3125d0744469baa37",
-    "url": "/forkie/static/js/main.3561bb4f.chunk.js"
+    "revision": "c3c17dafcb0ec8b575cc",
+    "url": "/forkie/static/js/main.1993b7b2.chunk.js"
   },
   {
     "revision": "6e46c4bee7a1b171b2d12d0aad5e7944",
@@ -52,7 +52,11 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/profile_on.b0609d39.svg"
   },
   {
-    "revision": "6742aa1be0e312ce0e0a3fcdaf89ae80",
+    "revision": "df8ab0d77849133817a25ad44ced54e1",
+    "url": "/forkie/static/media/profile1.df8ab0d7.jpg"
+  },
+  {
+    "revision": "1bc053809b4f9a19b8a9875af74f2cd7",
     "url": "/forkie/index.html"
   }
 ];
