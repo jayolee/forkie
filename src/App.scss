@@ -32,7 +32,7 @@ body, .App {
 
 div,
 a,
-img {
+img, input, textarea {
   box-sizing: border-box;
   text-decoration: none;
 }
@@ -47,9 +47,22 @@ img {
 }
 .mainmenu{
    background: rgba(252,223,105,.3);
+   height: calc(100% - 60px);
+   transition: .3s;
+
+}
+.cardRow{
+    overflow: scroll;
+    width: 100%;
+    height: calc(100% - 104px);
+    padding-bottom: 40px;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        width: 0;
+    }
 }
 .footbar{
-    height: 64px;
+    height: 60px;
     width: 100%;
     padding: 0 24px;
     background: #fff;
@@ -97,6 +110,138 @@ img {
         line-height: 0.8;
     }
 }
+.input.recipe{
+    display: flex;
+    align-items: center;
+    margin: 0 8px 16px;
+    #inputbox{
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 8px 15px; 
+        border-radius: 40px;
+        border: 1px solid rgba(0, 0,0,0.2);
+        margin-right: 12px;
+        background:rgba(255,255,255,.4);
+        font: {
+            size:12px;
+        }
+        &:focus{
+            outline:none;
+        }
+        
+    }
+    .sendbtn{
+        background: $orange;
+        width: 30px;
+        height:30px;
+        padding: 4px;
+        border-radius: 20px;
+        fill: none;
+        stroke-width: 2px;
+        stroke: #fff;
+        cursor: pointer;
+    }
+}
+
+.msgbtns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+   
+    .msgbtn{
+       margin: 0;
+       width: 40%;
+       text-align: center;
+       padding-bottom: 10px;
+    }
+    .on{
+        color: $orange;
+        font-weight: bold;
+        border-bottom: 2px solid $orange;
+    }
+}
+.recieve{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    svg{
+        fill: none;
+        stroke-width: 2px;
+        stroke: #ccc;
+    }
+}
+.comments{
+    display:flex;
+    flex-direction: column;
+    padding: 8px 0;
+    order: 3;
+    width: 100%;
+    margin-top: 8px;
+    font: {
+        size: 12px;
+    }
+    .convo{
+        padding: 6px 12px;
+        margin: 6px 0;
+        border-radius: 20px;
+    }
+    .mine{
+        align-self: flex-end;
+        background: $blue;
+        color:#fff;
+    }
+    .other{
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+        .profile{
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            margin-right: 8px;
+            border-radius: 16px;
+        }
+        .msg{        
+            padding: 6px 12px;
+            border-radius: 20px;
+            background:rgba(252,223,105,.5);
+        }
+        align-self: flex-start;
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        margin: 16px 0 0;
+    #inputbox{
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 8px 15px; 
+        border-radius: 40px;
+        border: 1px solid rgba(0, 0,0,0.2);
+        margin-right: 12px;
+        background:rgba(252,223,105,.1);
+        font: {
+            size:12px;
+        }
+        &:focus{
+            outline:none;
+        }
+        
+    }
+    .sendbtn{
+        background: $orange;
+        width: 30px;
+        height:30px;
+        padding: 4px;
+        border-radius: 20px;
+        fill: none;
+        stroke-width: 2px;
+        stroke: #fff;
+        cursor: pointer;
+    }
+}
+}
 .feedCard{
     background: #fff;
     width: 95%;
@@ -106,7 +251,7 @@ img {
     box-shadow: 0 0 8px $yellow-shadow;
     display: flex;
     align-items:center;
-    
+    flex-wrap: wrap;
     .profilePic{
         width: 60px;
         height: 60px;
@@ -120,6 +265,9 @@ img {
         .sent{
             font-size: 12px;
             color: rgba(0,0,0,0.5);
+            .name{
+                font-weight: bold;
+            }
         }
     .message{
         margin-top: 4px;
@@ -127,6 +275,8 @@ img {
         font-size: 18px;
     }
     .recipe{
+        line-height: 1.4;
+        margin-top: 2px;
         display: flex;
         align-items: center;
         color: $blue;
@@ -135,12 +285,46 @@ img {
             size: 14px;
         }
         .fork{
-            width: 40px;
-            margin-right: 8px;
+            width: 20px;
+            margin-right: 2px;
             display: inline-block;
 
         }
+        .forked{
+            color: $orange;
+        }
+        .source{
+            font-weight: 400;
+        }
     }
+
+    .open_recipe{
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        .thumbnail{
+            width: 64px;
+            height: 64px;
+            background: #ccc;
+        }
+        .title{
+            margin: 8px 16px 0;
+            font: {
+                weight: bold;
+                size: 14px;
+            }
+        }
+        .description{
+            margin: 0 16px 12px;
+            font: {
+                size: 12px;
+            }
+        }
+    }
+    
     .shared_recipe{
         width: 100%;
         display: flex;
@@ -168,4 +352,276 @@ img {
         }
     }
 }
+}
+.recipeTop{
+    .filter{
+        position: relative;
+        font-size: 12px;
+        overflow: hidden;
+        height: 24px;
+        padding:0;
+        border-radius: 18px;
+        border: 1px solid #ccc;
+        svg{
+            position: absolute;
+            top: 0;
+            right: 14px;
+        }
+        .filterType{
+            padding: 4px 14px;
+        }
+    }
+}
+.recipe{
+    padding: 0;
+    overflow: hidden;
+    .menuPic{
+        width: 84px;
+        height: 84px;
+        background: #ccc;
+    }
+    .recipeContent{
+        width: calc(100% - 150px);
+        padding: 16px 16px 24px; 
+        .title{
+            font-weight: bold;
+        }
+        .description{
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    }
+    .status{
+        font-size: 12px;
+        text-align: right;
+        align-self: flex-start;
+        margin-top: 16px;
+        opacity: .5;
+    }
+}
+.profileCard{
+    padding-top: 50px;
+    width: 100%;
+    .profile{
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background: #ccc;
+        margin: 0 auto;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    .profileInfo{
+        width: 100%;
+        text-align: center;
+        margin: 16px 0 42px;
+        .name{
+            font: {
+                size: 18px;
+                weight: bold
+            }
+        }
+        .level{
+            margin-top: 4px;
+            font-size:14px;
+            opacity: .5;
+        }
+    }
+}
+.follow{
+    display: flex;
+    padding: 0 16px;
+    margin: 24px 0 20px;
+    .followNum{
+        display: flex;
+        align-items: center;
+        margin-right: 16px;
+    }
+    .numbers{
+        display: inline-block;
+        font: {
+            weight: bold;
+            size: 18px;
+        }
+    }
+    .type{
+        font-size: 14px;
+        margin-left: 8px;
+        opacity: .5;
+    }
+}
+.taste{
+    .title{
+        font: {
+            size: 18px;
+            weight: bold;
+        }
+    }
+    .tags{
+        margin-top: 8px;
+        display:flex;
+        flex-wrap: wrap;
+        .tastes{
+            font-size: 14px;
+            padding: 4px 16px;
+            margin: 6px 8px 6px 0;
+            color: $blue;
+            border: 1px solid $blue;
+            border-radius: 16px;
+            // background: rgba(60,77,100,0.1);
+        }
+    }
+}
+.greybox{
+    transition: .3s;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: right;
+    padding: 16px;
+    top:0;
+    left: 0;
+    .rcpButtons{
+        right: 16px;
+        top: 36px;
+        display: flex;
+        flex-direction: column;
+        align-content: right;
+        .addbtn{
+            width: 38px;
+            height: 38px;
+            background: $orange;
+            border-radius: 19px;
+            text-align: center;
+            vertical-align: center;
+            align-self: flex-end;
+            margin: 2px 0 8px;
+            font: {
+                size: 50px;
+            }
+            color: #fff;
+            line-height: 0.8;
+        }
+        .btn{
+            align-self: flex-end;
+            text-align: center;
+            padding: 6px 16px;
+            margin: 4px;
+            border-radius: 20px;
+            background: $orange;
+            color: #fff;
+            font-weight: bold;
+
+        }
+    }
+}
+
+.recipeC{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: #fff;
+    .topbar{
+        .addbtn{
+            background: none;
+            border: 2px solid $blue;
+            color: $blue;
+        }
+        .addRecipe{
+            color: $blue;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        .closebtn{
+            stroke: $orange;
+            stroke-width: 2px;
+        }
+    }
+
+    .titleBox{
+        padding: 0 16px;
+        input{
+            font-size: 18px;
+            border: none;
+            padding: 8px;
+            border-bottom: 2px solid #ccc;
+        }
+        textarea{
+            margin: 8px 0;
+            padding: 8px;
+            border: none;
+            font-size: 14px;
+            width: 100%;
+        }
+    }
+
+    .mainContent{
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+        background: rgba(252,223,105,.3);
+        .title{
+            font-weight: bold;
+            margin-right: 16px;
+            transition: .3s;
+        }
+        .card{
+            background: #fff;
+    width: 95%;
+    margin:16px auto 0;
+    border-radius: 6px;
+    padding:16px 16px 20px;
+    box-shadow: 0 0 8px $yellow-shadow;
+    display: flex;
+    align-items:center;
+    flex-wrap: wrap;
+           
+            input{
+                border: none;
+                border-bottom: 2px solid #ccc;
+                font-size: 14px;
+                width: auto;
+            }
+        }
+    }
+}
+.recommend{
+    height: 70px;
+    width: 100%;
+    background: rgba(0, 0,0,0.5);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font : {
+        size: 21px;
+        weight: bold;
+    }
+    bottom: 0;
+}
+.alert{
+    transition: .3s;
+        position:fixed;
+        top:50%;
+        left:50%;
+        max-width: 260px;
+        text-align: center;
+        @include transform(translateX(-50%) translateY(-50%));
+        font: {
+            size: 14px;
+            weight: 700;
+        }
+        color: #fff;
+        padding:6px 20px;
+        background: rgba(0, 0,0,0.5);
+        border-radius: 40px;
+}
+.addbtn, .btn, .closebtn, .open_recipe{
+    cursor: pointer;
 }
