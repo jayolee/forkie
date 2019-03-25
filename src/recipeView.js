@@ -17,11 +17,14 @@ class RecipeV extends Component {
           stepopc: 0,
           stepdis: 1,
           opacity: 0,
-
+          servesize: 2,
           cookV : 0,
+          opencomment: 0,
+          commentheight: 0,
         }
         this.arrow = [ <path d = "M0 5 L10 10 L20 5" />,  <path d = "M0 10 L10 5 L20 10" />];
-        this.display = ["block","none"]
+        this.display = ["block","none"];
+        this.heights = ["150px", "100%"]
      }
 
      componentDidMount(){
@@ -57,7 +60,7 @@ class RecipeV extends Component {
       <div className = "topSec   recipe">
         <div className = "topbar">
           <div className = "sharebtn" style ={{display:"flex", alignItems: "center"}}>
-              <img src ={fork} />
+              <img src ={fork} style={{marginRight: "16px"}} />
               <img src= {share} />
           </div>
           <div className = "closebtn" onClick = {this.props.closeRecipe.bind(this)}>
@@ -102,13 +105,13 @@ class RecipeV extends Component {
           <div className = "title">Serving Size</div>
           <div className = "serving">
               <div className = "servBtn" style ={{marginRight: "16px"}}>
-                <svg width = "12" height ="12">
+                <svg width = "12" height ="12" onClick = {(ev) => {if(this.state.servesize > 1){this.setState({servesize:this.state.servesize - 1})}}}>
                   <path d = "M0 6 L12 6" />
                 </svg>
               </div>
-              <div className = "description">2</div>
+              <div className = "description" key="size">{this.state.servesize}</div>
               <div className = "servBtn"  style ={{marginLeft: "16px"}}>
-                <svg width = "12" height ="12">
+                <svg width = "12" height ="12" onClick = {(ev) => {this.setState({servesize:this.state.servesize + 1})}}>
                   <path d = "M0 6 L12 6" />
                   <path d = "M6 0 L6 12" />
                 </svg>
@@ -123,8 +126,7 @@ class RecipeV extends Component {
             1 stick butter <br />
               4 egg whites<br />
               2 egg yolks<br />
-              1/3 cup flour <br />
-              1 3/4 teaspoons baking powder< br />
+              <span class="highlight">1/3 cup flour</span> <br />
               2 3/4 tablespoon milk<br />
               1 cup sugar<br />
             </div>
@@ -161,6 +163,19 @@ class RecipeV extends Component {
       </div>
 
       <div className = "btmbtn" onClick = {(ev) => {this.setState({cookV: 1})}}>Start Cooking</div>
+      
+      {/* <div className = "comment" key ="comment" style={{height:this.heights[this.state.commentheight]}} onClick={(ev) => 
+      {this.setState({commentheight:Math.abs(this.state.commentheight - 1)})}}>
+      <div className = "row">
+      You can use coconut flour for crispy texture
+        <div className = "writer"><div className = "profile" /> Kate</div>
+        </div>
+        <div className = "row">
+      Make sure that you use the right amount of flour. It can be very thick otherwise.
+        <div className = "writer"><div className = "profile" /> Smith</div>
+        </div>
+      </div> */}
+
       </div>
     );
   }

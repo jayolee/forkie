@@ -99,8 +99,11 @@ img, input, textarea {
         color: #3C4D64;
     }
     .addbtn{
-        width: 38px;
-        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
         background: $orange;
         border-radius: 19px;
         text-align: center;
@@ -109,7 +112,11 @@ img, input, textarea {
             size: 50px;
         }
         color: #fff;
-        line-height: 0.8;
+        svg{
+            margin: 0;
+            stroke: $blue;
+            stroke-width: 3px;
+        }
     }
 }
 .input.recipe{
@@ -252,8 +259,9 @@ img, input, textarea {
     padding:16px 16px 20px;
     box-shadow: 0 0 8px $yellow-shadow;
     display: flex;
-    align-items:center;
+    align-items:flex-start;
     flex-wrap: wrap;
+    position: relative;
     cursor: pointer;
     .profilePic{
         width: 60px;
@@ -263,7 +271,7 @@ img, input, textarea {
         margin-right: 24px;
     }
     .Messages{
-        line-height: 1.7;
+        line-height: 1.5;
         width: calc(100% - 84px);
         .sent{
             font-size: 12px;
@@ -272,6 +280,22 @@ img, input, textarea {
                 font-weight: bold;
             }
         }
+        #publics{
+            width: 26px;
+            margin: 0 4px;
+            opacity: .5;
+            @include transform(translateY(4px));
+        }
+    .time{
+        margin-top: 4px;
+        font: {
+            size: 11px;
+        }
+        opacity: .5;
+        position: absolute;
+        right: 16px;
+        top: 14px;
+    }
     .message{
         margin-top: 4px;
         width: 100%;
@@ -590,6 +614,15 @@ img, input, textarea {
                 font-size: 14px;
                 width: auto;
             }
+            textarea{
+                margin: 8px 0;
+                padding: 8px;
+                border: none;
+                font-size: 14px;
+                width: calc(100% - 66px);
+                resize: vertical;
+                border-bottom: 2px solid #ccc;
+            }
         }
     }
 }
@@ -602,11 +635,14 @@ img, input, textarea {
     justify-content: center;
     align-items: center;
     color: #fff;
+    padding-top: 20px;
+    text-align: center;
     font : {
         size: 21px;
         weight: bold;
     }
     bottom: 0;
+  
 }
 .alert{
     transition: .3s;
@@ -624,14 +660,21 @@ img, input, textarea {
         padding:6px 20px;
         background: rgba(0, 0,0,0.5);
         border-radius: 40px;
+        &.notify{
+            color: #fff;
+            width: 350px;
+            border-radius: 6px;
+            padding: 20px;
+            background: rgba(0, 0,0,0.6);
+            box-shadow: 0 0 10px rgba(0, 0,0,0.2);
+        }
 }
 .addbtn, .btn, .closebtn, .open_recipe{
     cursor: pointer;
 }
 .sharebtn{
     img{
-        width: 32px;
-        margin: 0 8px;
+        width:42px;
         cursor: pointer;
     }
 }
@@ -741,6 +784,10 @@ img, input, textarea {
         }
 
         .description{
+            .highlight{
+                background: $yellow-shadow;
+                cursor: pointer;
+            }
             .desRow{
                 display: flex;
                 margin-bottom: 8px;
@@ -752,6 +799,38 @@ img, input, textarea {
                 }
             }
         }
+    }
+}
+.comment{
+    transition: .3s;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: $yellow-shadow;
+    height: 150px;
+    box-shadow: 0 0 20px $orange;
+    width: 100%;
+    border-radius: 6px;
+    padding: 20px;
+    .writer{
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        font: {
+            size: 14px;
+            weight: bold;
+        }
+        .profile{
+            width: 20px;
+            height: 20px;
+            background: #ccc;
+            border-radius: 18px;
+            margin-right: 8px;
+        }
+    }
+    .row{
+        padding: 12px 0 16px;
+        border-bottom: 1px dashed $blue;
     }
 }
 .btmbtn{
@@ -770,4 +849,69 @@ img, input, textarea {
     }
     border-radius: 21px;
     box-shadow: 0 4px 12px $orange;
+}
+.cookV{
+    position: fixed;
+    z-index: 999;
+    background: url('images/pancake-bg.jpg');
+    width: 100vh;
+    max-width: 812px;
+    height: 100vw;
+    max-height: 375px;
+    @include transform(rotate(90deg));
+    top:218.5px;
+    left: -218.5px;
+    display: flex;
+    align-items: center;
+    #pancake{
+        width: 100vh;
+        position: absolute;
+
+    }
+    .mainContent{
+        width: 70vh;
+        height: 100vw;
+        max-height: 312px;
+        margin: 10px auto;
+        padding:0;
+        box-shadow: 0 0 16px rgba(0, 0,0,0.6);
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .imgwrapper{
+        position:absolute;
+        width: 260px;
+        overflow: hidden;
+        height: calc(100% - 62px);
+        margin: 0;
+        padding: 0;
+        border-radius: 6px 0 0 6px;
+    }
+    .stepcard{
+        padding: 10px 30px;
+
+    }
+    .topbar{
+        justify-content: flex-end;
+    }
+    .desRow{
+        width: calc(100% - 300px);
+        
+        margin-left: 280px;
+    }
+  
+    #egg{
+        height: 100%;
+
+    }
+    .closebtn{
+        cursor:pointer;
+    }
+    .arrows{
+        stroke: $orange;
+        stroke-width: 3px;
+        fill: none;
+        margin:0 16px;
+        width: 30px;
+    }
 }
