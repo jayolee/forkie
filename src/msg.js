@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import fork from './images/fork.svg'
 import publics from './images/everyone.svg'
+import profile from './images/profile1.jpg'
+import profile2 from './images/profile2.jpg'
+import profile3 from './images/profile3.jpg'
+import profile4 from './images/profile4.jpg'
+import profile5 from './images/profile5.jpg'
 
 class Message extends Component {
     constructor(props) {
         super(props);
         this.state = {
           page: 0,
-          comment: 0,
-          arrow: 0,
-          openRecipe :1,
-          openRecipeOp: 0,
+          comment: 1,
+          arrow: 1,
+          openRecipe :0,
+          openRecipeOp: 1,
           msglist: [],
           msgrnum : 0,
         }
@@ -87,21 +92,18 @@ class Message extends Component {
        
        
        <div className ="feedCard">
-        <div className ="profilePic" style={{alignSelf: "flex-start"}}/>
+        <div className ="profilePic" style={{alignSelf: "flex-start"}}>
+          <img src= {profile3} />
+        </div>
         <div className = "Messages">
           <div className = "sent recieve">
            Me, Neha
-            <svg width = "20" height = "20" onClick={(ev) => this.setState({comment: Math.abs(this.state.comment -1), arrow: Math.abs(this.state.arrow -1), openRecipeOp: Math.abs(this.state.openRecipeOp -1), openRecipe: Math.abs(this.state.openRecipe -1)})}>
-                {this.arrow[this.state.arrow]}
-            </svg>
+           <div className = "time">4d</div>
           </div>
           <div className = "message">
           This is Korean version 🍅🌶
           </div>
-          <div className = "recipe" style={{opacity:Math.abs(this.state.openRecipeOp - 1), display: this.display[Math.abs(this.state.openRecipe-1)]}}>
-          June's special chicken curry
-          </div>
-          <div className = "open_recipe" style={{opacity: this.state.openRecipeOp, display: this.display[this.state.openRecipe]}}>
+          <div className = "open_recipe">
             <div className = "thumbnail" />
             <div>
               <div className = "title"> June's special chicken curry</div>
@@ -109,36 +111,54 @@ class Message extends Component {
             </div>
           </div>
         </div>
+        <div className = "commentNum">
+            Comments (3)
+          
+            <svg width = "20" height = "20" onClick={(ev) => this.setState({comment: Math.abs(this.state.comment -1), arrow: Math.abs(this.state.arrow -1), openRecipeOp: Math.abs(this.state.openRecipeOp -1), openRecipe: Math.abs(this.state.openRecipe -1)})}>
+                {this.arrow[this.state.arrow]}
+            </svg>
+          </div>
         {this.generatingComment()}
        </div>
 
 
         <div className ="feedCard">
-        <div className ="profilePic" />
+        <div className ="profilePic" >
+          <img src= {profile4} />
+        </div>
         <div className = "Messages">
           <div className = "sent recieve">
-          <span><img id="publics" src={publics} /> 33 people</span>
-           <svg width = "20" height = "20">
-           {this.arrow[1]}
-           </svg>
+           Jane's friends (33 people)
+           <div className = "time">10m</div>
           </div>
           <div className = "message">
           Try this 🥞
           </div>
-          <div className = "recipe">
-          souffle pancake
+          <div className = "open_recipe">
+            <div className = "thumbnail" />
+            <div>
+              <div className = "title"> Souffle pancake</div>
+              <div className = "description">It's my grandma's recipe.</div>
+            </div>
           </div>
         </div>
+        <div className = "commentNum">
+            Comments (2)
+          
+            <svg width = "20" height = "20">
+                {this.arrow[0]}
+            </svg>
+          </div>
        </div>
 
           <div className ="feedCard">
-        <div className ="profilePic" />
+        <div className ="profilePic" >
+          <img src= {profile2} />
+        </div>
         <div className = "Messages">
           <div className = "sent recieve">
           Me, Faye and 33 other people
-           <svg width = "20" height = "20">
-           {this.arrow[1]}
-           </svg>
+          <div className = "time">3d</div>
           </div>
           <div className = "message">
           Lin's Coconut Curry!!!
@@ -150,6 +170,13 @@ class Message extends Component {
           </div>
           </div>
         </div>
+        <div className = "commentNum">
+            Comments (3)
+          
+            <svg width = "20" height = "20">
+                {this.arrow[0]}
+            </svg>
+          </div>
        </div>
       </div>
     );

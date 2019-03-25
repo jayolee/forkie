@@ -48,7 +48,7 @@ class cookV extends Component {
          
           <div className = "stepcard">
           
-            <div className = "topbar">
+            <div className = "topbar" style={{justifyContent:"flex-end"}}>
             <div className = "closebtn" onClick = {this.props.endCook.bind(this)}>
                 <svg width = "20" height = "20">
                 <path d="M0 0 L20 20" />
@@ -59,7 +59,7 @@ class cookV extends Component {
             <div className = "description" style={{position:"relative"}}>
             
                 <div className = "desRow">
-                <div className = "stepnum">1.</div>
+                <div className = "stepnum">1 / 5</div>
                 <div className = "stepDes">Beat egg whites until soft peaks form, then add granulated sugar and continue to beat for 3 mins.</div>
                 </div>
             </div>

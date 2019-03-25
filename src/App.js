@@ -15,6 +15,9 @@ import Profile from './profile.js'
 
 import RecipeC from './recipeC.js'
 import RecipeV from './recipeView.js'
+import Recipients from './recipients.js'
+import MsgWrite from './msgwrite.js'
+import Fork from './fork.js'
 import './App.scss';
 
 class App extends Component {
@@ -27,6 +30,12 @@ class App extends Component {
       dis: 1,
       recipe : 0,
       recipeV : 0,
+      curshare: 0,
+      fork: 0,
+
+      notifyop: 0,
+      notifydis: 1,
+      notify : "",
     }
     this.home = [home, homeOn];
     this.msg = [mail, mailOn];
@@ -36,10 +45,19 @@ class App extends Component {
     
     this.display = ["block","none"];
   }
-
+  setNotify(cont){
+    this.setState({notifydis: 0, notify: cont});
+    setTimeout(function () {this.setState({notifyop: 1})}.bind(this), 10);
+    setTimeout(function () {this.setState({notifyop: 0})}.bind(this), 1500);
+    setTimeout(function () {this.setState({notifydis: 1})}.bind(this), 1800);
+  }
   openshare(){
     this.setState({dis: 0});
     setTimeout(function () {this.setState({opcity: 1})}.bind(this), 10);
+}
+closeshare(){
+  this.setState({opcity: 0});
+  setTimeout(function () {this.setState({dis: 1})}.bind(this), 300);
 }
 closeRecipe(){
   this.setState({recipe: 0, recipeV:0, opcity : 0});
@@ -59,21 +77,45 @@ openRecipe(){
         return <Message />;
       case 2: 
         this.menu = [this.home[0], this.msg[0], this.recipe[1], this.profile[0]];
-        return <Recipes />;
+        return <Recipes openRecipe = {this.openRecipe.bind(this)}/>;
       case 3: 
         this.menu = [this.home[0], this.msg[0], this.recipe[0], this.profile[1]];
         return <Profile />;
     }
   }
+  closeShare(i){
+    this.setState({curshare: i});
+  }
+  shareRender(){
+    switch(this.state.curshare){
+      case 0:
+      return;
+      case 1:
+        return <Recipients closeShare = {this.closeShare.bind(this)}/>
+      case 2:
+        return <MsgWrite closeShare = {this.closeShare.bind(this)} setNotify = {this.setNotify.bind(this)}/>
+    }
+  }
   recipeRender(){
-    if(this.state.recipe == 1){
+    if(this.state.recipe === 1){
       return <RecipeC closeRecipe = {this.closeRecipe.bind(this)} />
     }
   }
   recipeViewer(){
-    if(this.state.recipeV == 1){
-      return <RecipeV closeRecipe = {this.closeRecipe.bind(this)} />
+    if(this.state.recipeV === 1){
+      return <RecipeV share={this.closeShare.bind(this)} forkset = {this.forkset.bind(this)} closeShare ={this.closeShare.bind(this)} closeRecipe = {this.closeRecipe.bind(this)} />
     }
+  }
+  forkRender(){
+    if(this.state.fork === 1){
+      return <Fork close ={this.closefork.bind(this)} />
+    }
+  }
+  forkset(){
+    this.setState({fork: 1})
+  }
+  closefork(){
+    this.setState({fork: 0})
   }
   render() {
     return (
@@ -88,7 +130,10 @@ openRecipe(){
           </div>
           <div className = "greybox" key = "greybox" style={{display:this.display[this.state.dis], opacity: this.state.opcity}}> 
             <div className = "rcpButtons">
-            <div className = "addbtn">+</div>
+            <div className = "addbtn" onClick={this.closeshare.bind(this)}> <svg width = "18" height ="18" style={{stroke:"#fff"}}>
+            <path d = "M0 9 L18 9" />
+                  <path d = "M9 0 L9 18" />
+                </svg></div>
               <div className = "btn">Share Link</div>
               <div className = "btn" onClick = {(ev) => {this.setState({recipe: 1})}}>Share Recipe</div>
             </div>
@@ -96,9 +141,12 @@ openRecipe(){
         
         {this.recipeRender()}
         {this.recipeViewer()}
-        {/* <RecipeC /> */}
-
+        {this.shareRender()}
+        {this.forkRender()}
         </div>
+        <div className = "alert notify main" style={{display:this.display[this.state.notifydis], opacity: this.state.notifyop}}>
+        <span>{this.state.notify}</span>
+      </div>
       </div>
     );
   }

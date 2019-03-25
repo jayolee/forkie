@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import fork from './images/fork.svg'
+import food1 from './images/padthai.jpg'
+import food2 from './images/carbonara.jpg'
+import food3 from './images/pancake.jpg'
+import search from './images/search.svg'
 
 class Recipes extends Component {
     constructor(props) {
@@ -15,65 +18,80 @@ class Recipes extends Component {
       <div className = "mainmenu">
         <div className = "topbar recipeTop">
           <div className = "name">Recipe</div>
-          <div className = "filter" >
-            <div className = "filterType">All </div>
-            <div className = "filterType">My Recipe</div>
-            <div className = "filterType">Forked Recipe</div>
-            <div className = "filterType">Saved Recipe</div>
+          <select className = "filter" >
+            <option className = "filterType">All </option>
+            <option className = "filterType">My Recipe</option>
+            <option className = "filterType">Forked Recipe</option>
+            <option className = "filterType">Saved Recipe</option>
             <svg width = "16" height ="16">
                     <path d = "M0 8 L8 16 L16 8" />
                 </svg>
-          </div>
+          </select>
         </div>
 
             <div className = "input recipe">
-            <input id="inputbox" type = "text" autoFocus placeholder = "Search by name, ingredients" />
+            <input id="inputbox" type = "text" placeholder = "Search by name, ingredients" />
+            <img src ={search} />
             </div>
-        <div className ="feedCard recipe">
-        <div className ="menuPic" />
+        <div className ="feedCard recipe" onClick = {this.props.openRecipe.bind(this)}>
+        <div className ="menuPic">
+          <img src={food1} />
+        </div>
         <div className = "recipeContent">
           <div className = "title">
-          Pad Thai
+          Pad Thai <span class="date">5d</span>
+          </div>
+          <div className = "user">
+          June
           </div>
           <div className = "description">
-          The original recipe
+          American ver pad thai.
           </div>
         </div>
         <div className = "status">
-            <b>80</b> Shares<br />
+            <b>10</b> Shares<br />
             <b>5</b> Forks
         </div>
        </div>
 
-        <div className ="feedCard recipe">
-        <div className ="menuPic" />
+        <div className ="feedCard recipe" onClick = {this.props.openRecipe.bind(this)}>
+        <div className ="menuPic">
+          <img src={food2} />
+        </div>
         <div className = "recipeContent">
           <div className = "title">
-          Pad Thai
+          Carbonara <span class="date">2d</span>
+          </div>
+          <div className = "user">
+          Joyce
           </div>
           <div className = "description">
-          The original recipe
+          Heavy, savory carbonara made of egg yolk!
           </div>
         </div>
         <div className = "status">
-            <b>80</b> Shares<br />
-            <b>5</b> Forks
+            <b>50</b> Shares<br />
+            <b>2</b> Forks
         </div>
        </div>
 
-        <div className ="feedCard recipe">
-        <div className ="menuPic" />
+        <div className ="feedCard recipe" onClick = {this.props.openRecipe.bind(this)}>
+        <div className ="menuPic">
+          <img src={food3} style={{transform:"translateX(-40px)"}}/>
+        </div>
         <div className = "recipeContent">
           <div className = "title">
-          Pad Thai
+          Suffle pancakes <span class="date">2d</span>
+          </div>
+          <div className = "user">
+          Me
           </div>
           <div className = "description">
-          The original recipe
+          It's my original recipe. Enjoy it~~
           </div>
         </div>
         <div className = "status">
-            <b>80</b> Shares<br />
-            <b>5</b> Forks
+            <b>20</b> Shares<br />
         </div>
        </div>
       </div>

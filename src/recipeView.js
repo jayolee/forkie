@@ -4,6 +4,7 @@ import share from './images/share1.png'
 import pancake from './images/pancake.jpg'
 import profile from './images/profile1.jpg'
 import CookV from './cookView.js'
+import dots from './images/dot.svg'
 
 class RecipeV extends Component {
     constructor(props) {
@@ -53,16 +54,13 @@ class RecipeV extends Component {
   endCook(){
     this.setState({cookV : 0});
   }
+
   render() {
     return (
       <div className = "recipeC mainmenu" key ="recipe" style={{transform:this.state.openmov, opacity:this.state.opacity}}>
      {this.startCook()}
       <div className = "topSec   recipe">
         <div className = "topbar">
-          <div className = "sharebtn" style ={{display:"flex", alignItems: "center"}}>
-              <img src ={fork} style={{marginRight: "16px"}} />
-              <img src= {share} />
-          </div>
           <div className = "closebtn" onClick = {this.props.closeRecipe.bind(this)}>
             <svg width = "20" height = "20">
               <path d="M0 0 L20 20" />
@@ -73,27 +71,37 @@ class RecipeV extends Component {
         </div>
 
       <div className = "mainContent recipe">
-        <div className = "topbar">
+        <div className = "topbar" style={{transform:"translateY(-32px)", height: "40px"}}>
           <div className = "profile">
             <img src= {profile} />
-            <div className = "name">Young</div>
           </div>
-          
-          <div className = "info">
-          <div className = "sharenum">
-              <div className = "number">5</div>
-              <span className = "type">Forks</span>
-            </div>
-            <div className = "sharenum">
-              <div className = "number">80</div>
-              <span className = "type">Shares</span>
-            </div>
-          
+          {/* <div className = "dots">
+          <img src={dots} />
+          </div> */}
+        
+          <div className = "sharebtn" style ={{display:"flex", alignItems: "center"}}>
+              <img src ={fork} onClick = {this.props.forkset.bind(this)}/>
+               <img src= {share}  onClick = {(ev)=>{this.props.share(1)}} style={{marginRight: "21px"}} />
           </div>
         </div>
 
-         <div className = "mainContent recipe">
-          <div className = "dishtitle">Suffle Pancake 🥞</div>
+         <div className = "mainContent recipe" style={{paddingTop: "4px"}}>
+         <div className = "titlebar">
+             <div className = "dishtitle">
+              <div>Suffle Pancake 🥞</div>
+              <div className="name">by <span className = "bold">YOUNG</span></div>
+              </div>
+            <div className = "info">
+            <div className = "sharenum" style={{marginRight: "12px"}}>
+                <div className = "number">5</div>
+                <span className = "type">Forks</span>
+              </div>
+              <div className = "sharenum">
+                <div className = "number">80</div>
+                <span className = "type">Shares</span>
+              </div>
+            </div>
+          </div>
           <div className = "discription">My original Recipe. Enjoy it!</div>
 
           <div className = "row">
