@@ -49,6 +49,13 @@ img, input, textarea {
    background: rgba(252,223,105,.3);
    height: calc(100% - 60px);
    transition: .3s;
+   &.profile{
+       position:absolute;
+       height: 100%;    
+       top: 0;
+       left: 0;
+       background: #FDF5D7;
+   }
 
 }
 .cardRow{
@@ -1014,11 +1021,46 @@ img, input, textarea {
     box-shadow: 0 0 20px $orange;
     width: 100%;
     border-radius: 6px;
-    padding: 20px;
+    padding: 16px 20px;
+    .control{
+        position:absolute;
+        right: 16px;
+        top: 4px;
+        opacity:1;
+    }
+    .commentrow{
+        display:flex;
+        justify-content: space-between;
+
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input{
+            width: calc(100% - 40px);
+            margin: 16px 0;
+            padding: 8px;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0,0,0.2);
+            background:rgba(255,255,255,.4);
+        }
+        .sendbtn{
+            background: $orange;
+            width: 30px;
+            height:30px;
+            padding: 4px;
+            border-radius: 20px;
+            fill: none;
+            stroke-width: 2px;
+            stroke: #fff;
+            cursor: pointer;
+        }
+    }
     .writer{
         display: flex;
         align-items: center;
-        margin-top: 8px;
+        margin: 8px 0;
         font: {
             size: 14px;
             weight: bold;
@@ -1029,11 +1071,33 @@ img, input, textarea {
             background: #ccc;
             border-radius: 18px;
             margin-right: 8px;
+            overflow:hidden;
         }
+        .time{
+            font: {
+                size: 12px;
+                weight: 400;
+            }
+            color: rgba(0,0,0,0.5);
+            margin-left: 8px;
+        }
+    }
+    .OX{display:flex;
+        align-items: center;
+        img{
+            margin-left: 6px;
+            padding-bottom: 4px;
+            cursor: pointer;
+        }
+        font: {
+            size: 12px;
+        }
+        color: $blue;
     }
     .row{
         padding: 12px 0 16px;
         border-bottom: 1px dashed $blue;
+        font-size: 14px;
     }
 }
 .btmbtn{
@@ -1129,4 +1193,15 @@ img, input, textarea {
 }
 .addbtn{
     cursor:pointer;
+}
+.profile.mainmenu{
+    .profileCard{
+        display:flex;
+        justify-content: space-around;
+
+    }
+    .followNum{
+        width: 70px;
+        flex-direction: column;
+    }
 }

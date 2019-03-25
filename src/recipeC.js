@@ -93,7 +93,7 @@ appendRow(){
     return (
       <div className = "recipeC mainmenu" key ="recipe" style={{transform:this.state.openmov, opacity:this.state.opacity}}>
       <div className = "topSec">
-        <div className = "topbar">
+        <div className = "topbar" style={{justifyContent:"space-between"}}>
           <div style ={{display:"flex", alignItems: "center"}}>
             <div className = "addbtn"> 
             <svg width = "18" height ="18">

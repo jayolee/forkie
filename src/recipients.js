@@ -12,7 +12,8 @@ class Recipients extends Component {
         super(props);
         this.state = {
           page: 0,
- 
+          // openmov: "translateY(30px)",
+          //  opacity: 0,
         }
          this.display = ["block","none"]
      }
@@ -74,25 +75,25 @@ searchFunc(e){
             </div>
         
         <div className = "list">
-          <div className = "row everyone" key ="row1" onClick={(ev) => this.props.closeShare(2)}>
+          <div className = "row everyone" key ="row1" onClick={(ev) => {this.props.closeShare(2); this.props.setName("Everyone")}}>
           <div className = "name" id= "all"> Share to all friends</div>
           </div>
 
-          <div className = "row" key ="row2" onClick={(ev) => this.props.closeShare(2)}>
+          <div className = "row" key ="row2" onClick={(ev) =>{this.props.closeShare(2); this.props.setName("Jane")}}>
           <div className ="profilePic" >
           <img src= {profile4} />
         </div>
           <div className = "name" id= "jane">Jane</div>
           </div>
            
-          <div className = "row" key ="row3" onClick={(ev) => this.props.closeShare(2)}>
+          <div className = "row" key ="row3" onClick={(ev) => {this.props.closeShare(2); this.props.setName("Jin")}}>
           <div className ="profilePic" >
           <img src= {profile2} />
         </div>
           <div className = "name" id= "jin" >Jin</div>
           </div>
            
-           <div className = "row" key ="row4" onClick={(ev) => this.props.closeShare(2)}>
+           <div className = "row" key ="row4" onClick={(ev) => {this.props.closeShare(2); this.props.setName("June")}}>
           <div className ="profilePic" >
           <img src= {profile3} />
         </div>

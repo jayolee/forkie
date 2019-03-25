@@ -18,6 +18,7 @@ import RecipeV from './recipeView.js'
 import Recipients from './recipients.js'
 import MsgWrite from './msgwrite.js'
 import Fork from './fork.js'
+import OProfile from './other_profile.js'
 import './App.scss';
 
 class App extends Component {
@@ -36,6 +37,8 @@ class App extends Component {
       notifyop: 0,
       notifydis: 1,
       notify : "",
+
+      name: "",
     }
     this.home = [home, homeOn];
     this.msg = [mail, mailOn];
@@ -91,9 +94,9 @@ openRecipe(){
       case 0:
       return;
       case 1:
-        return <Recipients closeShare = {this.closeShare.bind(this)}/>
+        return <Recipients closeShare = {this.closeShare.bind(this)} setName = {this.setName.bind(this)}/>
       case 2:
-        return <MsgWrite closeShare = {this.closeShare.bind(this)} setNotify = {this.setNotify.bind(this)}/>
+        return <MsgWrite name = {this.state.name} closeShare = {this.closeShare.bind(this)} setNotify = {this.setNotify.bind(this)}/>
     }
   }
   recipeRender(){
@@ -116,6 +119,9 @@ openRecipe(){
   }
   closefork(){
     this.setState({fork: 0})
+  }
+  setName(i){
+    this.setState({name: i})
   }
   render() {
     return (
@@ -143,6 +149,7 @@ openRecipe(){
         {this.recipeViewer()}
         {this.shareRender()}
         {this.forkRender()}
+        {/* <OProfile /> */}
         </div>
         <div className = "alert notify main" style={{display:this.display[this.state.notifydis], opacity: this.state.notifyop}}>
         <span>{this.state.notify}</span>

@@ -5,6 +5,9 @@ import pancake from './images/pancake.jpg'
 import profile from './images/profile1.jpg'
 import CookV from './cookView.js'
 import dots from './images/dot.svg'
+import thumb from './images/thumb.svg'
+import profile2 from './images/profile5.jpg'
+import profile3 from './images/profile6.jpg'
 
 class RecipeV extends Component {
     constructor(props) {
@@ -21,11 +24,12 @@ class RecipeV extends Component {
           servesize: 2,
           cookV : 0,
           opencomment: 0,
-          commentheight: 0,
+          commentdis: 1,
+          commentheight: 2,
         }
         this.arrow = [ <path d = "M0 5 L10 10 L20 5" />,  <path d = "M0 10 L10 5 L20 10" />];
         this.display = ["block","none"];
-        this.heights = ["150px", "100%"]
+        this.heights = ["150px", "100%", "0px"]
      }
 
      componentDidMount(){
@@ -45,6 +49,16 @@ class RecipeV extends Component {
       const step = document.getElementById("step");
       step.innerHTML = "1.";
     
+  }
+  opencomment(){
+    this.setState({commentdis: 0, });
+    setTimeout(function () {this.setState({commentheight: 0,opencomment: 1})}.bind(this), 10);
+  }
+  closecomment(){
+      this.setState({opencomment: 0 });
+      setTimeout(function () {this.setState({commentheight: 2})}.bind(this), 10);
+      setTimeout(function () {this.setState({commentdis: 1})}.bind(this), 200);
+
   }
   startCook(){
     if(this.state.cookV === 1){
@@ -89,7 +103,7 @@ class RecipeV extends Component {
          <div className = "titlebar">
              <div className = "dishtitle">
               <div>Suffle Pancake 🥞</div>
-              <div className="name">by <span className = "bold">YOUNG</span></div>
+              <div className="name">by <span className = "bold">Young</span></div>
               </div>
             <div className = "info">
             <div className = "sharenum" style={{marginRight: "12px"}}>
@@ -134,7 +148,7 @@ class RecipeV extends Component {
             1 stick butter <br />
               4 egg whites<br />
               2 egg yolks<br />
-              <span class="highlight">1/3 cup flour</span> <br />
+              <span class="highlight" onClick={this.opencomment.bind(this)}>1/3 cup flour</span> <br />
               2 3/4 tablespoon milk<br />
               1 cup sugar<br />
             </div>
@@ -172,17 +186,45 @@ class RecipeV extends Component {
 
       <div className = "btmbtn" onClick = {(ev) => {this.setState({cookV: 1})}}>Start Cooking</div>
       
-      {/* <div className = "comment" key ="comment" style={{height:this.heights[this.state.commentheight]}} onClick={(ev) => 
+      <div className = "comment" key ="comment" style={{height:this.heights[this.state.commentheight], opacity: this.state.opencomment, display:this.display[this.state.commentdis]}} onClick={(ev) => 
       {this.setState({commentheight:Math.abs(this.state.commentheight - 1)})}}>
+      
       <div className = "row">
+     
+        <div className = "commentrow">
+        <div className="control" onClick ={this.closecomment.bind(this)}>(drag down)</div>
+        <div className = "writer">
+          <div className = "profile">
+            <img src={profile2} style={{width:"100%"}} />
+          </div> Kate <span className = "time">5d</span>
+        </div>
+        <div className ="OX">40 <img src={thumb} style={{width: "20px"}} /></div>
+          </div>
+
       You can use coconut flour for crispy texture
-        <div className = "writer"><div className = "profile" /> Kate</div>
+      </div>
+      <div className = "row">
+      <div className = "commentrow">
+        <div className = "writer">
+          <div className = "profile">
+            <img src={profile3} style={{width:"100%"}} />
+          </div> Smith <span className = "time">2w</span>
         </div>
-        <div className = "row">
+        <div className ="OX">20 <img src={thumb} style={{width: "20px"}} /></div>
+          </div>
       Make sure that you use the right amount of flour. It can be very thick otherwise.
-        <div className = "writer"><div className = "profile" /> Smith</div>
         </div>
-      </div> */}
+
+         <div className = "input">
+      <input id="inputbox" type = "text" placeholder = "Type message" />
+      <div className = "sendbtn">
+              <svg width="20" height="20">
+                  <path d="M12 2 L18 10 L12 18" />
+                  <path d="M2 10 L18 10" />
+              </svg>
+          </div>
+      </div>
+      </div>
 
       </div>
     );

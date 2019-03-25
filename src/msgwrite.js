@@ -64,7 +64,7 @@ searchFunc(e){
         </div>
         </div>
         <div className = "mainContent" style={{background:"#fff", padding:"0 16px"}}>
-        <div className ="recipient">{this.props.name}&nbsp;</div>
+        <div className ="recipient" onClick={(ev) => {this.props.closeShare(1)}}>{this.props.name}&nbsp;</div>
         <textarea class="messageP" placeholder = "Leave a message"/>
         <div className = "open_recipe">
             <div className = "thumbnail">
