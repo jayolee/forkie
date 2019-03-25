@@ -4,40 +4,48 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/home.5f1ff5d9.svg"
   },
   {
-    "revision": "0599006dffefe3a8020f",
-    "url": "/forkie/static/css/main.0d7a5984.chunk.css"
+    "revision": "d4e2693289f17ab0a8bc",
+    "url": "/forkie/static/css/main.00bebff4.chunk.css"
   },
   {
     "revision": "4ae04c6c8a93822d2862",
     "url": "/forkie/static/js/runtime~main.4651f496.js"
   },
   {
-    "revision": "f4f008ae05670b2dc35b",
-    "url": "/forkie/static/js/2.d7c2b091.chunk.js"
+    "revision": "8c4b95906cfc5a4c4c56",
+    "url": "/forkie/static/js/2.71c30d13.chunk.js"
   },
   {
     "revision": "123dad529434b05cc1c63976141ad70f",
     "url": "/forkie/static/media/fork.123dad52.svg"
   },
   {
+    "revision": "b3240c5528a5900e54be86ac8f413e2c",
+    "url": "/forkie/static/media/everyone.b3240c55.svg"
+  },
+  {
     "revision": "df8ab0d77849133817a25ad44ced54e1",
     "url": "/forkie/static/media/profile1.df8ab0d7.jpg"
   },
   {
-    "revision": "16bf8bb8cd1e608abc06e65f62b9f745",
-    "url": "/forkie/static/media/fork2.16bf8bb8.png"
+    "revision": "f3600b7a5e497cf028a1595a1c2e0b0c",
+    "url": "/forkie/static/media/fork2.f3600b7a.png"
   },
   {
-    "revision": "d7b9149cf6494756137e4d6fd58a47ec",
-    "url": "/forkie/static/media/share1.d7b9149c.png"
+    "revision": "18e3432bfe88014e3451535ba9524723",
+    "url": "/forkie/static/media/share1.18e3432b.png"
   },
   {
     "revision": "da97d0587099b876d97fe268424be08f",
     "url": "/forkie/static/media/pancake.da97d058.jpg"
   },
   {
-    "revision": "0599006dffefe3a8020f",
-    "url": "/forkie/static/js/main.51617608.chunk.js"
+    "revision": "4769bdd549caebb535d215e150785059",
+    "url": "/forkie/static/media/arrow.4769bdd5.png"
+  },
+  {
+    "revision": "d4e2693289f17ab0a8bc",
+    "url": "/forkie/static/js/main.5b681929.chunk.js"
   },
   {
     "revision": "1df2524f1d6d65509af46b2d1be045c5",
@@ -68,7 +76,15 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/profile_on.b0609d39.svg"
   },
   {
-    "revision": "8b271e1c1d618a06cfe11cac99dc0d2e",
+    "revision": "2c3aa12f1e62c04adc09b8c320de0840",
+    "url": "/forkie/static/media/eggwhite.2c3aa12f.jpg"
+  },
+  {
+    "revision": "698baa7e37fd521af4298b791529504c",
+    "url": "/forkie/static/media/pancake-bg.698baa7e.jpg"
+  },
+  {
+    "revision": "3a7d20ce9eb96716914facdbe5b51e13",
     "url": "/forkie/index.html"
   }
 ];
