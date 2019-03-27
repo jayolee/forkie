@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/everyone.b3240c55.svg"
   },
   {
-    "revision": "61011a3462825a6c4e9d",
-    "url": "/forkie/static/css/main.0617c36e.chunk.css"
+    "revision": "9f2f0903b78ac3053ffd",
+    "url": "/forkie/static/css/main.b4b460f8.chunk.css"
   },
   {
     "revision": "4ae04c6c8a93822d2862",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/thumb.cdcc1e95.svg"
   },
   {
-    "revision": "61011a3462825a6c4e9d",
-    "url": "/forkie/static/js/main.e474ec4c.chunk.js"
+    "revision": "9f2f0903b78ac3053ffd",
+    "url": "/forkie/static/js/main.b9888b26.chunk.js"
   },
   {
     "revision": "5f1ff5d9450433e8d8852d6ca74e6e68",
@@ -116,6 +116,10 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/profile6.4fa8e854.jpg"
   },
   {
+    "revision": "ffecde80221a473e0416826e78034690",
+    "url": "/forkie/static/media/pencil.ffecde80.svg"
+  },
+  {
     "revision": "318466feda9d15b649efba85380441b7",
     "url": "/forkie/static/media/dot.318466fe.svg"
   },
@@ -124,7 +128,7 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/pancake-bg.698baa7e.jpg"
   },
   {
-    "revision": "d23a3cd210a477e4f49fbe2047a2e716",
+    "revision": "34a29126b9b0d29112640143b3ab3e9f",
     "url": "/forkie/index.html"
   }
 ];
