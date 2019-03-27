@@ -72,10 +72,10 @@ searchFunc(e){
             </div>
             <div>
               <div className = "title"> Souffle pancake</div>
-              <div className = "description">It's my grandma's recipe.</div>
+              <div className = "description">My original recipe. Enjoy it!</div>
             </div>
           </div>
-          <div className = "btmbtn share" onClick={(ev) => {this.props.closeShare(0); this.props.setNotify("sent")}}>Share</div>
+          <div className = "btmbtn share" onClick={(ev) => {this.props.closeShare(0); this.props.setNotify("Shared!")}}>Share</div>
         </div>
       </div>
     );

@@ -33,7 +33,7 @@ class Fork extends Component {
 
       this.startStep();
       let title = document.getElementsByClassName("title")[0];
-      title.value = "Suffle Pancake 🥞";
+      title.value = "Souffle Pancake 🥞";
       let estimated = document.getElementById("estimated");
       estimated.value = "30 min";
       let ingre = document.getElementsByClassName("ingre");

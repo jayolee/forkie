@@ -39,7 +39,7 @@ img, input, textarea {
 
 .screen{
     width: 375px;
-    height : 812px;
+    height : 768px;
     background: #fff;
     margin: 0 auto;
     overflow:hidden;
@@ -49,6 +49,11 @@ img, input, textarea {
    background: rgba(252,223,105,.3);
    height: calc(100% - 60px);
    transition: .3s;
+   padding-bottom: 40px;
+   scrollbar-width: none;
+   &::-webkit-scrollbar{
+       width: 0;
+   }
    &.profile{
        position:absolute;
        height: 100%;    
@@ -59,15 +64,9 @@ img, input, textarea {
 
 }
 .cardRow{
-
-    overflow: scroll;
     width: 100%;
-    height: calc(100% - 104px);
-    padding-bottom: 40px;
-    scrollbar-width: none;
-    &::-webkit-scrollbar{
-        width: 0;
-    }
+    height: calc(100%);
+
 }
 .footbar{
     height: 60px;
@@ -89,6 +88,7 @@ img, input, textarea {
 }
 .mainmenu{
     height: 100%;
+    // overflow:scroll;
 }
 .topbar{
     height: 74px;
@@ -105,28 +105,35 @@ img, input, textarea {
         }
         color: #3C4D64;
     }
-    .addbtn{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        background: $orange;
-        border-radius: 19px;
-        text-align: center;
-        vertical-align: center;
-        font: {
-            size: 50px;
-        }
-        color: #fff;
-        svg{
-            margin: 0;
-            stroke: $blue;
-            stroke-width: 3px;
-        }
+   
+}
+.topbar{
+.name.home{
+    position:fixed;
+    top: 26px;
+}
+}
+.addbtn{
+    top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: $orange;
+    border-radius: 19px;
+    text-align: center;
+    vertical-align: center;
+    font: {
+        size: 50px;
+    }
+    color: #fff;
+    svg{
+        margin: 0;
+        stroke: $blue;
+        stroke-width: 3px;
     }
 }
-
 .input.recipe{
     display: flex;
     align-items: center;
@@ -592,6 +599,7 @@ img, input, textarea {
         display:flex;
         flex-wrap: wrap;
         .tastes{
+            transition: .3s;
             font-size: 14px;
             padding: 4px 16px;
             margin: 6px 8px 6px 0;
@@ -599,6 +607,24 @@ img, input, textarea {
             border: 1px solid $blue;
             border-radius: 16px;
             // background: rgba(60,77,100,0.1);
+        }
+        #addTaste{
+            width: 100%;
+            font: {
+                size: 16px;
+            }
+            border:none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+            padding: 8px 16px;
+        }
+        svg{
+            stroke: $blue;
+        }
+        .opposite{
+            background: $blue;
+            color: #fff;
+            font-weight: bold;
         }
     }
 }
@@ -807,21 +833,24 @@ img, input, textarea {
     }
 }
 .recommend{
-    height: 70px;
-    width: 100%;
-    background: rgba(0, 0,0,0.5);
+    width: auto;
+    box-shadow: 0 0 10px $yellow-shadow;
+    border-radius: 26px;
+    left: 50%;
+    @include transform(translateX(-50%));
+    background: $blue;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
-    padding-top: 20px;
+    padding:8px 16px;
     text-align: center;
     font : {
-        size: 21px;
+        size: 16px;
         weight: bold;
     }
-    bottom: 0;
+    bottom: 32px;
   
 }
 .alert{
@@ -930,7 +959,7 @@ img, input, textarea {
         }
     }
     .dishtitle{
-        padding:0 16px 0;
+        padding:0 0 0 16px;
         font: {
             size: 24px;
             weight: bold;

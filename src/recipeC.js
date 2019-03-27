@@ -61,11 +61,14 @@ class RecipeC extends Component {
     let curtext = e.target.value;
     curtext = curtext.toLowerCase();
     let length = curtext.length;
+
     let final = curtext.substring(length-3,length)
-    if(final===("min")){
+    console.log(final);
+    if(final===("min")||final===("ins")){
       this.setrecommendation("in HIGH | LOW heat")
-    }else if(final === "ast"){
+    }else if(final === "sts"){
       this.setrecommendation("How long?");
+      this.setInstruction("Type 'for 20 mins'")
     } else{
       this.setState({recommendop: 0});
     setTimeout(function () {this.setState({recommenddis: 1})}.bind(this), 300);
@@ -131,7 +134,7 @@ appendRow(){
        Step</div>
          <div className = "card">
           <div className = "title" id="step">Step 1.</div>
-          <textarea rows = "1" onFocus={(ev) => {this.startStep(); this.setInstruction("Type 'Boil chicken breasts'")}} onKeyUp={this.checksuggestion.bind(this)} placeholder ="..." onKeyPress = {(ev) => {
+          <textarea rows = "1" onFocus={(ev) => {this.startStep(); if(!ev.target.value){this.setInstruction("Type 'Boil chicken breasts'")}}} onKeyUp={this.checksuggestion.bind(this)} placeholder ="..." onKeyPress = {(ev) => {
                     if(ev.key === "Enter"){this.setState({appendrow : 1, btmbtndis: 0, btmbtn: 1})}}}/>
         
         {this.appendRow()}

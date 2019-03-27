@@ -81,7 +81,7 @@ class Recipes extends Component {
         </div>
         <div className = "recipeContent">
           <div className = "title">
-          Suffle pancakes <span class="date">2d</span>
+          Souffle pancakes <span class="date">2d</span>
           </div>
           <div className = "user">
           Me

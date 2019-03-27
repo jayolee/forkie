@@ -102,7 +102,7 @@ class RecipeV extends Component {
          <div className = "mainContent recipe" style={{paddingTop: "4px"}}>
          <div className = "titlebar">
              <div className = "dishtitle">
-              <div>Suffle Pancake 🥞</div>
+              <div>Souffle Pancake 🥞</div>
               <div className="name">by <span className = "bold">Young</span></div>
               </div>
             <div className = "info">
@@ -116,7 +116,7 @@ class RecipeV extends Component {
               </div>
             </div>
           </div>
-          <div className = "discription">My original Recipe. Enjoy it!</div>
+          <div className = "discription">My original recipe. Enjoy it!</div>
 
           <div className = "row">
           <div className = "title">Estimated Cooking Time</div>

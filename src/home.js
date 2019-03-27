@@ -7,18 +7,28 @@ import profile3 from './images/profile3.jpg'
 import profile4 from './images/profile4.jpg'
 import profile5 from './images/profile5.jpg'
 
+
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      curscroll: 1,
+    }
+
+  }
+
+  scrollopcity(){
+    let scrolltop = window.pageYOffset;
+    console.log(scrolltop);
+    let height = window.innerHeight;
+    this.setState({curscroll: 1 - (scrolltop/height) * 10});
+  }
   render() {
     return (
-      <div className = "mainmenu">
+      <div className = "mainmenu" onScroll={this.scrollopcity.bind(this)} style={{overflow:"scroll"}}>
         <div className = "topbar">
-          <div className = "name">Home</div>
-          <div className = "addbtn" onClick = {this.props.openShare.bind(this)}>
-          <svg width = "18" height ="18" style={{stroke:"#fff"}}>
-            <path d = "M0 9 L18 9" />
-                  <path d = "M9 0 L9 18" />
-                </svg>
-                </div>
+          <div className = "name home" key = "title" style={{opacity:this.state.curscroll}}>Home</div>
+        
         </div>
         <div className = "cardRow">
        <div className ="feedCard" onClick ={this.props.recipeView.bind(this)}>
@@ -145,6 +155,14 @@ class Home extends Component {
       
         </div>
        </div>
+       <div className = "addbtn" onClick = {this.props.openShare.bind(this)} style={{ position: "fixed",
+    left: "calc(50% + 135.5px)",
+    boxShadow:" 0 6px 8px rgba(255,123,74,.6)"}}>
+          <svg width = "18" height ="18" style={{stroke:"#fff"}}>
+            <path d = "M0 9 L18 9" />
+                  <path d = "M9 0 L9 18" />
+                </svg>
+                </div>
        </div>
       </div>
     );
