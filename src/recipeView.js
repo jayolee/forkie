@@ -85,7 +85,7 @@ class RecipeV extends Component {
         </div>
 
       <div className = "mainContent recipe">
-        <div className = "topbar" style={{transform:"translateY(-32px)", height: "40px"}}>
+        <div className = "topbar" style={{transform:"translateY(-30px)", height: "40px"}}>
           <div className = "profile">
             <img src= {profile} />
           </div>
@@ -95,7 +95,7 @@ class RecipeV extends Component {
         
           <div className = "sharebtn" style ={{display:"flex", alignItems: "center"}}>
               <img src ={fork} onClick = {this.props.forkset.bind(this)}/>
-               <img src= {share}  onClick = {(ev)=>{this.props.share(1)}} style={{marginRight: "21px"}} />
+               <img src= {share}  onClick = {(ev)=>{this.props.share(1)}} style={{marginRight: "16px"}} />
           </div>
         </div>
 
