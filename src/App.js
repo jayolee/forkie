@@ -12,6 +12,7 @@ import Home from './home.js'
 import Message from './msg.js'
 import Recipes from './recipe.js'
 import Profile from './profile.js'
+import logo from './images/logo.svg'
 
 import RecipeC from './recipeC.js'
 import RecipeV from './recipeView.js'
@@ -26,6 +27,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      start: 1,
+      start_dis:0,
+      color:"#FEF5D3",
+
       page: 0,
       opcity: 0,
       dis: 1,
@@ -47,7 +52,13 @@ class App extends Component {
     this.menu = [this.home[1], this.msg[0], this.recipe[0], this.profile[0]]; 
     
     this.display = ["block","none"];
+    this.flex_display = ["flex","none"];
   }
+  componentDidMount(){
+
+    setTimeout(function () {this.setState({start: 0, color: "#FFF"})}.bind(this), 1000);
+    setTimeout(function () {this.setState({start_dis: 1})}.bind(this), 1400);
+}
   setNotify(cont){
     this.setState({notifydis: 0, notify: cont});
     setTimeout(function () {this.setState({notifyop: 1})}.bind(this), 10);
@@ -134,7 +145,7 @@ openRecipe(){
             <img src = {this.menu[2]}  onClick ={(ev) => this.setState({page: 2})}/>
             <img src= {this.menu[3]}  onClick ={(ev) => this.setState({page: 3})}/>
           </div>
-          <div className = "greybox" key = "greybox" style={{display:this.display[this.state.dis], opacity: this.state.opcity}}> 
+          <div className = "greybox" key = "greybox" onClick={this.closeshare.bind(this)} style={{display:this.display[this.state.dis], opacity: this.state.opcity}}> 
             <div className = "rcpButtons">
             <div className = "addbtn" onClick={this.closeshare.bind(this)}> <svg width = "18" height ="18" style={{stroke:"#fff"}}>
             <path d = "M0 9 L18 9" />
@@ -150,6 +161,9 @@ openRecipe(){
         {this.shareRender()}
         {this.forkRender()}
         {/* <OProfile /> */}
+        <div key="start" style={{background:this.state.color, position:"absolute",top:"0",left:"0", width:"100%", height:"100%", transition:"0.4s", alignItems:"center", justifyContent:"center", opacity:this.state.start, display:this.flex_display[this.state.start_dis]}}>
+          <img src={logo}  style={{width:"60%", paddingBottom:"60px"}}/>
+        </div>
         </div>
         <div className = "alert notify main" style={{display:this.display[this.state.notifydis], opacity: this.state.notifyop}}>
         <span>{this.state.notify}</span>

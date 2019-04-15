@@ -26,6 +26,7 @@ class RecipeV extends Component {
           opencomment: 0,
           commentdis: 1,
           commentheight: 2,
+          ingre: [[0, 1, 2], 57, 2, 1, [0, 1, 3], 41, [1, 3, 4], [0, 1, 2], 100],
         }
         this.arrow = [ <path d = "M0 5 L10 10 L20 5" />,  <path d = "M0 10 L10 5 L20 10" />];
         this.display = ["block","none"];
@@ -41,6 +42,22 @@ class RecipeV extends Component {
       setTimeout(function () {this.setState({altopcity: 1})}.bind(this), 10);
       setTimeout(function () {this.setState({altopcity: 0})}.bind(this), 1500);
       setTimeout(function () {this.setState({altdis: 1})}.bind(this), 1800);
+  }
+  getamount(n){
+    let amount = this.state.servesize;
+    let ingre = this.state.ingre[n];
+    let result = "";
+    if(Array.isArray(ingre)){
+      if(ingre[1] * amount >= ingre[2]){
+        result += Math.floor(ingre[1] * amount / ingre[2]) + (ingre[0] * amount) + " "
+      } 
+      if(ingre[1] * amount % ingre[2] !== 0){
+        result += (ingre[1] * amount % ingre[2])+"/" + ingre[2];
+      }
+      return result;
+    } else{
+      return ingre * amount;
+    }
   }
   startStep() {
     this.setState({stepdis: 0});
@@ -69,10 +86,12 @@ class RecipeV extends Component {
     this.setState({cookV : 0});
   }
 
+
   render() {
     return (
-      <div className = "recipeC mainmenu" key ="recipe" style={{transform:this.state.openmov, opacity:this.state.opacity}}>
+      <div className = "recipeC mainmenu" key ="recipe" style={{transform:this.state.openmov,  paddingBottom:"0", opacity:this.state.opacity}}>
      {this.startCook()}
+     <div className = "mainmenu" style={{ overflow: "scroll", margin:"0", background:"none"}}>
       <div className = "topSec   recipe">
         <div className = "topbar">
           <div className = "closebtn" onClick = {this.props.closeRecipe.bind(this)}>
@@ -145,12 +164,12 @@ class RecipeV extends Component {
           <div className = "title" >Ingredients</div>
           <div className = "description">
           <div className= "steps">
-            1 stick butter <br />
-              4 egg whites<br />
-              2 egg yolks<br />
-              <span class="highlight" onClick={this.opencomment.bind(this)}>1/3 cup flour</span> <br />
-              2 3/4 tablespoon milk<br />
-              1 cup sugar<br />
+          {this.getamount(0)} stick / {this.getamount(1)}g butter <br />
+          {this.getamount(2)} egg whites<br />
+          {this.getamount(3)} egg yolks<br />
+              <span class="highlight" onClick={this.opencomment.bind(this)}>{this.getamount(4)} cup / {this.getamount(5)}g flour</span> <br />
+              {this.getamount(6)} tablespoon milk<br />
+              {this.getamount(7)} cup / {this.getamount(8)}g sugar<br />
             </div>
           </div>
           </div>
@@ -168,23 +187,28 @@ class RecipeV extends Component {
               <div className = "stepDes">In a large bowl, whisk together the remaining batter ingredients. Fold one-third of the meringue into the batter at a time.
               </div>
           </div>
+          <div className = "desRow">
+              <div className = "stepnum">3.</div>
+              <div className = "stepDes">Oil a frying pan over low heat, then cook about 1 cup of the batter at a time. Cook for 6 minutes, then flip it over when slightly browned.
+              </div>
+          </div>
+          <div className = "desRow">
+              <div className = "stepnum">4.</div>
+              <div className = "stepDes">Continue cooking for about 15 minutes until cooked through.
+              </div>
+          </div>
           </div>
           </div>
 
 
           </div>
-        <div className = "title" key="stepTitle" style ={{marginLeft: "16px", marginTop: "16px", display:this.display[this.state.stepdis], opacity: this.state.stepopc}}>
-       Step</div>
-         <div className = "card">
-          <div className = "title" id="step">Step 1.</div>
-          <input onFocus={(ev) => {this.startStep(); this.setInstruction("Type 'Boil chicken breasts'")}} placeholder ="..." />
-        </div>
+      </div>
       </div>
       <div className = "alert" key ="alert" style={{display:this.display[this.state.altdis], opacity: this.state.altopcity}}>
         {this.state.alert}
       </div>
 
-      <div className = "btmbtn" onClick = {(ev) => {this.setState({cookV: 1})}}>Start Cooking</div>
+      <div className = "btmbtn startCook" onClick = {(ev) => {this.setState({cookV: 1})}}>Start Cooking</div>
       
       <div className = "comment" key ="comment" style={{height:this.heights[this.state.commentheight], opacity: this.state.opencomment, display:this.display[this.state.commentdis]}} onClick={(ev) => 
       {this.setState({commentheight:Math.abs(this.state.commentheight - 1)})}}>
