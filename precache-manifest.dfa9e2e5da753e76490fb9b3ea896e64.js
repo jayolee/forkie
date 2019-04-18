@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/home.5f1ff5d9.svg"
   },
   {
-    "revision": "20dd8e0e2521cf851c79",
-    "url": "/forkie/static/css/main.4a284378.chunk.css"
+    "revision": "fd6b8a3596f7ec821958",
+    "url": "/forkie/static/css/main.55e13995.chunk.css"
   },
   {
     "revision": "4ae04c6c8a93822d2862",
     "url": "/forkie/static/js/runtime~main.4651f496.js"
   },
   {
-    "revision": "58c7c1bfe3cdea0dba01",
-    "url": "/forkie/static/js/2.8d66f3bc.chunk.js"
+    "revision": "a8357ee9abfafcb02d33",
+    "url": "/forkie/static/js/2.d83e931c.chunk.js"
   },
   {
     "revision": "123dad529434b05cc1c63976141ad70f",
@@ -68,8 +68,8 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/everyone.b3240c55.svg"
   },
   {
-    "revision": "20dd8e0e2521cf851c79",
-    "url": "/forkie/static/js/main.b74fdad0.chunk.js"
+    "revision": "fd6b8a3596f7ec821958",
+    "url": "/forkie/static/js/main.e588c54b.chunk.js"
   },
   {
     "revision": "1df2524f1d6d65509af46b2d1be045c5",
@@ -108,6 +108,10 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/carbonara.1b61cb68.jpg"
   },
   {
+    "revision": "ffecde80221a473e0416826e78034690",
+    "url": "/forkie/static/media/pencil.ffecde80.svg"
+  },
+  {
     "revision": "e8f09150076b39d1a2bcc99135a5da3d",
     "url": "/forkie/static/media/logo.e8f09150.svg"
   },
@@ -120,10 +124,6 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/profile6.4fa8e854.jpg"
   },
   {
-    "revision": "ffecde80221a473e0416826e78034690",
-    "url": "/forkie/static/media/pencil.ffecde80.svg"
-  },
-  {
     "revision": "318466feda9d15b649efba85380441b7",
     "url": "/forkie/static/media/dot.318466fe.svg"
   },
@@ -132,7 +132,7 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/pancake-bg.698baa7e.jpg"
   },
   {
-    "revision": "9e6224ec7fd1c02800c89ce49831ec52",
+    "revision": "27bb325c86e56ebe06c293f58d0e6a60",
     "url": "/forkie/index.html"
   }
 ];
