@@ -1167,6 +1167,9 @@ img, input, textarea {
     left: -218.5px;
     display: flex;
     align-items: center;
+    &.mainmenu{
+        padding-bottom: 0;
+    }
     #pancake{
         width: 100vh;
         position: absolute;

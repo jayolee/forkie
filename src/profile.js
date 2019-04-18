@@ -8,17 +8,44 @@ class Profile extends Component {
         super(props);
         this.state = {
           page: 0,
+          tags: ["Spicy", "Korean", "Greek", "Tangy", "Heavy"],
+          btnclass:["tastes", "tastes opposite"],
+          edit: false,
+          editbtn: [<img src={pencil} style={{width:"24px"}} />, <input onKeyDown={(ev) => {if(ev.key === "Enter"){this.addTag(ev); this.setState({edit: false})}}} id ="addTaste" placeholder="Add taste" style={{width: "100%", border:0,borderBottom:"2px solid #ccc", padding: "6px"}}/>
+        ]
         }
         this.arrow = [ <path d = "M0 5 L10 10 L20 5" />,  <path d = "M0 10 L10 5 L20 10" />];
      }
 
   enterEdit(){
-    let tastes = document.getElementsByClassName("tastes");
-    for(let i = 0; i< tastes.length; i++){
-      if(tastes[i].classList){
-      tastes[i].classList.add("opposite")
+      this.setState({edit: true})
+  }
+  deleteTag(e){
+    if(this.state.edit === true){
+    let value = e.target.innerHTML;
+    let indexNum = this.state.tags.indexOf(value);
+    let tags = this.state.tags;
+    tags = tags.slice(0, indexNum).concat(tags.slice(indexNum + 1, tags.length));
+
+    this.setState({tags: tags});
+  }
+  }
+  addTag(e){
+    let newtag = e.target.value;
+    let tags = this.state.tags;
+    // if(tags.includes(newtag)){
+    //   alert("The taste is already existing");
+    // }
+    tags.push(newtag);
+    this.setState({tags: tags});
+
+  }
+  generateTags(){
+    let element = [];
+    for(let i = 0; i < this.state.tags.length; i++) {
+      element.push(<div key={this.state.tags[i]} className = {this.state.btnclass[this.state.edit * 1]} onClick={this.deleteTag.bind(this)}>{this.state.tags[i]}</div>)
     }
-    }
+    return element;
   }
   render() {
     return (
@@ -47,10 +74,8 @@ class Profile extends Component {
         <div className ="feedCard taste">
           <div className = "title" style={{width:"100%",display:"flex", justifyContent:"space-between", alignItems:"center"}}>
             <div>Taste</div>
-            <div style={{width: "80px", display:"flex"}} onClick={this.enterEdit.bind(this)}>
-            {/* <img src={pencil} style={{width:"100%"}} /> */}
-            
-            <input id ="addTaste" placeholder="Add taste" style={{width: "100%"}}/>
+            <div style={{width: "120px", height:"30px", display:"flex", justifyContent:"flex-end"}} onClick={this.enterEdit.bind(this)}>
+            {this.state.editbtn[this.state.edit * 1]}
             <svg width = "18" height ="18" style={{stroke:"#fff"}}>
             <path d = "M0 9 L18 9" />
                   <path d = "M9 0 L9 18" />
@@ -58,11 +83,7 @@ class Profile extends Component {
             </div>
           </div>
           <div className = "tags" >
-            <div className = "tastes ">Spicy</div>
-            <div className = "tastes ">Korean</div>
-            <div className = "tastes ">Greek</div>
-            <div className = "tastes ">Tangy</div>
-            <div className = "tastes ">Heavy</div>
+            {this.generateTags()}
           </div>
        </div>
       </div>
