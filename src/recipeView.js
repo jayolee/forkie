@@ -125,7 +125,7 @@ class RecipeV extends Component {
               <div className="name">by <span className = "bold">Young</span></div>
               </div>
             <div className = "info">
-            <div className = "sharenum" style={{marginRight: "12px"}}>
+            <div className = "sharenum" style={{marginRight: "16px"}}>
                 <div className = "number">5</div>
                 <span className = "type">Forks</span>
               </div>

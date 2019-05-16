@@ -138,7 +138,7 @@ appendRow(){
           <input style={{width:"100px"}} placeholder ="30 min" id="estimated"/>
         </div>
 
-         <div className = "card">
+         <div className = "card forking">
           <div className = "title" >Ingredients</div>
           <input className="ingre"/>
           <input className="ingre"/>
