@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/home.5f1ff5d9.svg"
   },
   {
-    "revision": "fd6b8a3596f7ec821958",
-    "url": "/forkie/static/css/main.55e13995.chunk.css"
+    "revision": "b33cdd088e4fadf92652",
+    "url": "/forkie/static/css/main.a3cf5ad9.chunk.css"
   },
   {
     "revision": "4ae04c6c8a93822d2862",
@@ -68,8 +68,8 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/everyone.b3240c55.svg"
   },
   {
-    "revision": "fd6b8a3596f7ec821958",
-    "url": "/forkie/static/js/main.e588c54b.chunk.js"
+    "revision": "b33cdd088e4fadf92652",
+    "url": "/forkie/static/js/main.9f43a0a4.chunk.js"
   },
   {
     "revision": "1df2524f1d6d65509af46b2d1be045c5",
@@ -132,7 +132,7 @@ self.__precacheManifest = [
     "url": "/forkie/static/media/pancake-bg.698baa7e.jpg"
   },
   {
-    "revision": "27bb325c86e56ebe06c293f58d0e6a60",
+    "revision": "12a0726ef3e8a7ee3ee8f5b3061815a0",
     "url": "/forkie/index.html"
   }
 ];
